@@ -38,7 +38,9 @@ const LeadershipSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="leadership" className="section-padding bg-background" ref={ref}>
+    <section id="leadership" className="section-padding bg-background relative" ref={ref}>
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
+
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -46,24 +48,38 @@ const LeadershipSection = () => {
           transition={{ duration: 0.7 }}
         >
           <p className="text-accent font-body text-sm tracking-[0.2em] uppercase mb-3">Leadership</p>
-          <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-14">
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-4">
             Beyond the <span className="italic text-accent">Classroom</span>
           </h2>
+          <motion.div
+            className="h-1 w-16 bg-accent rounded-full mb-14"
+            initial={{ width: 0 }}
+            animate={isInView ? { width: 64 } : {}}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          />
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {roles.map((role, i) => (
             <motion.div
               key={role.title}
-              className="glass-card rounded-xl p-6 md:p-8 group hover:shadow-xl transition-all"
-              initial={{ opacity: 0, scale: 0.95 }}
+              className="glass-card rounded-2xl p-6 md:p-8 group relative overflow-hidden"
+              initial={{ opacity: 0, scale: 0.9 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.1 * i }}
+              whileHover={{ y: -4, transition: { duration: 0.3 } }}
             >
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-accent/10 text-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <role.icon size={20} />
-                </div>
+              {/* Hover gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              <div className="flex items-start gap-4 relative z-10">
+                <motion.div
+                  className="flex-shrink-0 w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center"
+                  whileHover={{ rotate: 10, scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <role.icon size={22} />
+                </motion.div>
                 <div>
                   <h3 className="text-base font-display font-semibold text-foreground">{role.title}</h3>
                   <p className="text-accent font-body text-sm font-medium">{role.org}</p>
