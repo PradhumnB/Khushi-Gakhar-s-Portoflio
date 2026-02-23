@@ -80,7 +80,7 @@ const SkillsSection = () => {
                 {cat.skills.map((skill, si) => (
                   <motion.span
                     key={skill}
-                    className="px-3 py-1.5 rounded-full bg-accent/10 text-accent-foreground font-body text-xs font-medium hover:bg-accent hover:text-accent transition-all duration-300 cursor-default"
+                    className="px-3 py-1.5 rounded-full bg-accent/10 text-accent font-body text-xs font-medium hover:bg-accent hover:text-accent-foreground transition-all duration-300 cursor-default"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={isInView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ duration: 0.3, delay: 0.3 + i * 0.15 + si * 0.05 }}
