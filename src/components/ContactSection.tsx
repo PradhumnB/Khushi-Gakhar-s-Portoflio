@@ -76,7 +76,7 @@ const ContactSection = () => {
           transition={{ delay: 0.5 }}
         >
           <span className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary-foreground/10 text-primary-foreground/50 font-body text-sm">
-            <Phone size={14} /> +91 9810963879
+            <Phone size={14} /> +91 9XXXXXXXX
           </span>
           <span className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary-foreground/10 text-primary-foreground/50 font-body text-sm">
             <MapPin size={14} /> New Delhi, India
