@@ -155,7 +155,7 @@ const HeroSection = () => {
           transition={{ delay: 1.6 }}
         >
           <span className="flex items-center gap-1.5"><MapPin size={14} /> New Delhi, India</span>
-          <span className="flex items-center gap-1.5"><Phone size={14} /> +91 9810963879</span>
+          <span className="flex items-center gap-1.5"><Phone size={14} /> +91 9XXXXXXXX</span>
         </motion.div>
       </div>
 
